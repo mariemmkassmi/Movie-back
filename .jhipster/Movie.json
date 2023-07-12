@@ -1,0 +1,57 @@
+{
+  "applications": "*",
+  "changelogDate": "20230711152711",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "movie",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "duration",
+      "fieldType": "Duration"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "language",
+      "fieldType": "Langue",
+      "fieldValues": "Francais,Anglais,Arabe"
+    },
+    {
+      "fieldName": "imageUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "publishDate",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Movie",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "staff",
+      "otherEntityRelationshipName": "movie",
+      "ownerSide": true,
+      "relationshipName": "membreStaff",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "category",
+      "otherEntityRelationshipName": "movie",
+      "ownerSide": true,
+      "relationshipName": "category",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

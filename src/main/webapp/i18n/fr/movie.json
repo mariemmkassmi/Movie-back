@@ -1,0 +1,31 @@
+{
+  "movieApp": {
+    "movie": {
+      "home": {
+        "title": "Movies",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Movie",
+        "createOrEditLabel": "Créer ou éditer un Movie",
+        "notFound": "Aucun Movie trouvé"
+      },
+      "created": "Un nouveau Movie a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Movie avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Movie avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Movie {{ id }} ?"
+      },
+      "detail": {
+        "title": "Movie"
+      },
+      "id": "ID",
+      "name": "Name",
+      "duration": "Duration",
+      "description": "Description",
+      "language": "Language",
+      "imageUrl": "Image Url",
+      "publishDate": "Publish Date",
+      "membreStaff": "Membre Staff",
+      "category": "Category"
+    }
+  }
+}

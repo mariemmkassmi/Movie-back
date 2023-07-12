@@ -1,0 +1,32 @@
+{
+  "applications": "*",
+  "changelogDate": "20230711152712",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "category",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Category",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "movie",
+      "otherEntityRelationshipName": "category",
+      "ownerSide": false,
+      "relationshipName": "movie",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}
