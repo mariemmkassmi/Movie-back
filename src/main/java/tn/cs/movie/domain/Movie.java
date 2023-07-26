@@ -1,6 +1,6 @@
 package tn.cs.movie.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import java.io.Serializable;
 import java.time.Duration;
 import java.time.ZonedDateTime;
@@ -30,6 +30,7 @@ public class Movie implements Serializable {
     private String name;
 
     @Column(name = "duration")
+    @JsonDeserialize
     private Duration duration;
 
     @Lob
@@ -47,22 +48,20 @@ public class Movie implements Serializable {
     @Column(name = "publish_date")
     private ZonedDateTime publishDate;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
         name = "rel_movie__membre_staff",
         joinColumns = @JoinColumn(name = "movie_id"),
         inverseJoinColumns = @JoinColumn(name = "membre_staff_id")
     )
-    @JsonIgnoreProperties(value = { "movies" }, allowSetters = true)
     private Set<Staff> membreStaffs = new HashSet<>();
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
         name = "rel_movie__category",
         joinColumns = @JoinColumn(name = "movie_id"),
         inverseJoinColumns = @JoinColumn(name = "category_id")
     )
-    @JsonIgnoreProperties(value = { "movies" }, allowSetters = true)
     private Set<Category> categories = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

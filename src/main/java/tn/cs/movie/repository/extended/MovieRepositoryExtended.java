@@ -11,15 +11,13 @@ import tn.cs.movie.repository.MovieRepositoryWithBagRelationships;
 @Repository
 public interface MovieRepositoryExtended extends MovieRepositoryWithBagRelationships, MovieRepository {
     @Query(
-        "SELECT m FROM Movie m left join m.categories  category " +
-        "left join m.membreStaffs staff " +
-        "WHERE (" +
-        "(:search is null ) or (m.name like %:search%)" +
-        " or (CAST(m.publishDate AS string) LIKE %:search% )" +
-        " or (category.name like %:search%)" +
-        "or (staff.firstName like %:search%)" +
-        "or (staff.lastName like %:search%)" +
-        " ) "
+        "SELECT m FROM Movie m LEFT JOIN m.categories category " +
+        "LEFT JOIN m.membreStaffs staff " +
+        "WHERE (:search IS NULL OR :search = '' OR " +
+        "LOWER(m.name) LIKE CONCAT('%', LOWER(:search), '%') OR " +
+        "LOWER(category.name) LIKE CONCAT('%', LOWER(:search), '%') OR " +
+        "LOWER(staff.firstName) LIKE CONCAT('%', LOWER(:search), '%') OR " +
+        "LOWER(staff.lastName) LIKE CONCAT('%', LOWER(:search), '%'))"
     )
     List<Movie> getMoviesBySearch(@Param("search") String search);
 }
